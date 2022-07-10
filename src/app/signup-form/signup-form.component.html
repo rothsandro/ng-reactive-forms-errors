@@ -1,1 +1,39 @@
-<p>signup-form works!</p>
+<form [formGroup]="form" class="container">
+  <!-- Without the directive you would do something like this: -->
+  <!--
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input type="email" matInput [formControl]="form.controls.email" />
+    <mat-error *ngIf="form.controls.email.hasError('required')">
+      E-mail is required
+    </mat-error>
+    <mat-error *ngIf="form.controls.email.hasError('email')">
+      Enter a valid e-mail address
+    </mat-error>
+  </mat-form-field>
+  -->
+
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input type="email" matInput [formControl]="form.controls.email" />
+    <mat-error *hasError="'required'">E-mail is required</mat-error>
+    <mat-error *hasError="'email'">Enter a valid e-mail address</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [formControl]="form.controls.password" />
+    <mat-error *hasError="'required'">Password is required</mat-error>
+    <mat-error *hasError="'forbiddenPassword'; let value">
+      <!--
+        Showing the password in plain text is probably not a good idea
+        but this is just a demo that you can access the error value.
+      -->
+      {{ value }} is not allowed
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-flat-button color="primary" type="submit">Sign up</button>
+  </div>
+</form>

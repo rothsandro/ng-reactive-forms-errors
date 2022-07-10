@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+
+  & + & {
+    margin-top: 1rem;
+  }
+}
+
+.actions {
+  text-align: right;
+}
