@@ -77,8 +77,8 @@ export class HasErrorDirective implements OnInit, OnDestroy {
       }
 
       if (this.view) {
-        this.view!.context.$implicit = error.value;
-        this.view!.markForCheck();
+        this.view.context.$implicit = error.value;
+        this.view.markForCheck();
         return;
       }
 
